@@ -1,0 +1,155 @@
+/** Nava Rodriguez Dylan A.*/
+
+#include <iostream>
+#include <conio.h>
+#include <windows.h>
+
+using namespace std;
+
+class Materia{  /**Nombre de la clase */
+
+private:        /** Atributos */
+
+    int clave;
+    string nombre;
+    string ProfesorTit;
+    string LibroTexto;
+
+public:     /** Funciones o metodos*/
+
+    void setclave(int);
+    void setnombre(string);
+    void setProfesorTit(string);
+    void setLibroTexto(string);
+
+    void Imprime();
+    void CambiaClave(int);
+    void CambiaProfe(string);
+
+};
+
+void Materia::Imprime(){
+
+    system("cls");
+    cout << "Clave: "<< clave << endl;
+    cout << "Nombre: "<< nombre << endl;
+    cout << "Profesor Titular: " << ProfesorTit << endl;
+    cout << "Libro de texto: " << LibroTexto << endl;
+    getch();
+}
+
+void Materia::CambiaProfe(string Cambio_){
+
+    system("cls");
+    ProfesorTit = Cambio_;
+    cout << "Cambio realizado con exito";
+    getch();
+
+}
+
+void Materia::CambiaClave(int CambioClave){
+
+    system("cls");
+    clave = CambioClave;
+    cout << "Cambio realizado con exito";
+    getch();
+
+}
+
+
+    /** Setters */
+
+void Materia::setclave(int Clave){
+
+    clave = Clave;
+
+}
+
+void Materia::setnombre(string Nombre){
+
+    nombre = Nombre;
+
+}
+
+void Materia::setProfesorTit(string ProfesorTit_){
+
+    ProfesorTit = ProfesorTit_;
+
+}
+
+void Materia::setLibroTexto(string LibroTexto_){
+
+    LibroTexto = LibroTexto_;
+
+}
+
+
+
+
+int main()
+{
+    int opcion, NuevaClave;
+    char bandera;
+    string NuevoNombre;
+
+    Materia Programacion;
+    Materia BasesDatos;
+
+    Programacion.setclave(224);
+    Programacion.setnombre("Programacion");
+    Programacion.setProfesorTit("Luis Muñoz");
+    Programacion.setLibroTexto("Programacion estructurada");
+
+    BasesDatos.setclave(225);
+    BasesDatos.setnombre("Bases de datos");
+    BasesDatos.setProfesorTit("David Anaya");
+    BasesDatos.setLibroTexto("Bases de datos I");
+
+    do{
+    system("cls");
+    cout << "1. Cambiar clave de programacion"<<endl;
+    cout << "2. Cambiar nombre de maestro de bases de datos"<<endl;
+    cout << "3. Imprimir datos de bases de datos"<<endl;
+
+    cout << "Elija una opcion:";
+    cin >> opcion;
+
+    switch(opcion){
+    case 1:
+        system("cls");
+        cout << "Cambiando clave de materia de programacion...";
+        cout << endl<<endl;
+        cout << "Ingrese la nueva clave: ";
+        cin >> NuevaClave;
+        Programacion.CambiaClave(NuevaClave);
+        break;
+
+    case 2:
+        system("cls");
+        cout << "Cambiando nombre del maestro de bases de datos...";
+        cout << endl<<endl;
+        cout << "Ingrese el nuevo nombre: ";
+        cin >> NuevoNombre;
+        BasesDatos.CambiaProfe(NuevoNombre);
+        break;
+
+    case 3:
+        system("cls");
+        cout << "Imprimiendo datos de la materia bases de datos...";
+        getch();
+        BasesDatos.Imprime();
+        break;
+    default:
+        break;
+
+    }
+
+    system("cls");
+    cout << "¿Repetir programa? (S/N)"<<endl;
+    cin  >> bandera;
+
+    }while(bandera=='s'||bandera=='S');
+
+    getch();
+
+}
